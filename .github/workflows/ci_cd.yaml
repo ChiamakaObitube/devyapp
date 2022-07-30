@@ -14,8 +14,14 @@ jobs:
   build:
     if: github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
+    # outputs:
+    #   should_skip: ${{ steps.skip_check.outputs.should_skip }}
     steps:
     - run: echo "it passed"
+      # - id: skip_check
+      #   uses: fkirc/skip-duplicate-actions@v3.4.0
+      #   with:
+      #     skip_after_successful_duplicate: 'true'
     # strategy:
     #   matrix:
     #     node-version: [10.x, 12.x, 14.x, 15.x]
