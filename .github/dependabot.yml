@@ -1,0 +1,15 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      time: "00:30"
+      timezone: "CET"
+    pull-request-branch-name:
+      # Separate sections of the branch name with a hyphen
+      separator: "-"
+    ignore:
+    # For all packages, ignore all patch updates
+    - dependency-name: "*"
+      update-types: ["version-update:semver-patch"]
